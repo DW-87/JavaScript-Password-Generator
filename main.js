@@ -16,6 +16,16 @@ const randomFunc = {
     symbol: getRandomSymbol
 };
 
+// Get Values Event
+generateEL.addEventListener('click', () => {
+    const length = +lengthEL.value;
+    const hasLower = lowercaseEL.checked;
+    const hasUpper = uppercaseEL.checked;
+    const hasNumber = numbersEL.checked;
+    const hasSymbol = symbolsEL.checked;
+    
+})
+
 // Generator Functions
 
 // Gen Lowercase
