@@ -4,7 +4,7 @@ const lengthEL = document.getElementById('length');
 const uppercaseEL = document.getElementById('uppercase');
 const lowercaseEL = document.getElementById('lowercase');
 const numbersEL = document.getElementById('numbers');
-const symbolsEL = document.getElementById('result');
+const symbolsEL = document.getElementById('symbols');
 const generateEL = document.getElementById('generate');
 const clipboardEL = document.getElementById('clipboard');
 
@@ -31,6 +31,23 @@ generateEL.addEventListener('click', () => {
         hasSymbol,
         length
     );
+});
+
+// Copy password to clipboard
+clipboardEL.addEventListener('click', () => {
+    const textarea = document.createElement('textarea');
+    const password = resultEL.innerText;
+
+    if(!password) {
+        return;
+    }
+
+    textarea.value = password;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    textarea.remove();
+    alert('Password was copied to clipboard!');
 });
 
 // Generate Password Function
@@ -77,8 +94,6 @@ function getRandomNumber() {
 
 // Gen Symbol
 function getRandomSymbol() {
-    const symbols = '!@#$^&*(){}[]=<>/,.';
-    return symbols[Math.floor(Math.random() * symbols.length)];
+	const symbols = '!@#$%^&*(){}[]=<>/,.'
+	return symbols[Math.floor(Math.random() * symbols.length)];
 }
-
-console.log(getRandomLower());
